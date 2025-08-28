@@ -30,11 +30,15 @@ class BlocScreen extends StatelessWidget {
             itemCount: state.users.length,
             itemBuilder: (context, index) {
               final user = state.users[index];
-              return ListTile(
-                title: ThListTitleBloc(user: user),
-                subtitle: ThSubtitleBloc(user: user),
-                leading: Icon(Icons.person),
-                trailing: ThListTrailingBloc(user: user),
+              return Card(
+                elevation: 3,
+                margin: EdgeInsets.all(15),
+                child: ListTile(
+                  title: ThListTitleBloc(user: user),
+                  subtitle: ThSubtitleBloc(user: user),
+                  leading: Icon(Icons.person),
+                  trailing: ThListTrailingBloc(user: user),
+                ),
               );
             },
           );

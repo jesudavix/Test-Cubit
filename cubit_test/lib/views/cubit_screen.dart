@@ -24,7 +24,11 @@ class CubitScreen extends StatelessWidget {
             itemCount: state.post.length,
             itemBuilder: (context, index) {
               final post = state.post[index];
-              return ListTile(
+              return Card(
+                elevation: 3,
+                margin: EdgeInsets.all(15),
+                child: ListTile(
+                leading:Icon(Icons.chat) ,
                 title: Text(
                   post.title,
                   style: TextStyle(
@@ -35,9 +39,11 @@ class CubitScreen extends StatelessWidget {
                 subtitle: Text(
                   post.body,
                   style: TextStyle(
-                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
                   ),
                 ),
+              ),
               );
             },
           );
