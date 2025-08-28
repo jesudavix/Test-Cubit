@@ -1,9 +1,9 @@
 import 'package:cubit_test/model/user.dart';
 import 'package:flutter/material.dart';
 
-class ThSubtitle extends StatelessWidget {
+class ThSubtitleBloc extends StatelessWidget {
   final UserModel user;
-  const ThSubtitle({super.key, required this.user});
+  const ThSubtitleBloc({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {

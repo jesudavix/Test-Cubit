@@ -14,7 +14,12 @@ class BlocScreen extends StatelessWidget {
     return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {
         if (state is UserInitial) {
-          return Center(child: ButtonBloc());
+          return Center(
+            child: ButtonBloc(
+              text: "Buscar Usuarios",
+              backgroundColor: Colors.blue,
+            ),
+          );
         } else if (state is UserLoading) {
           return const Center(
             child: CircularProgressIndicator(color: Colors.blue),
@@ -26,10 +31,10 @@ class BlocScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               final user = state.users[index];
               return ListTile(
-                title: ThListTitle(user: user,),
-                subtitle: ThSubtitle(user: user),
+                title: ThListTitleBloc(user: user),
+                subtitle: ThSubtitleBloc(user: user),
                 leading: Icon(Icons.person),
-                trailing: ThListTrailing(user: user,)
+                trailing: ThListTrailingBloc(user: user),
               );
             },
           );
@@ -41,5 +46,3 @@ class BlocScreen extends StatelessWidget {
     );
   }
 }
-
-

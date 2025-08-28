@@ -1,4 +1,5 @@
 import 'package:cubit_test/controller/bloc/user_bloc.dart';
+import 'package:cubit_test/controller/cubit/user_cubit.dart';
 import 'package:cubit_test/services/json_api.dart';
 import 'package:cubit_test/views/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -9,13 +10,15 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  final JsonPlaceHolderAPI api = JsonPlaceHolderAPI();
-  MainApp({super.key});
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => UserBloc(api),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => UserBloc(JsonPlaceHolderAPI())),
+        BlocProvider(create: (context) => PostCubit(JsonPlaceHolderAPI())),
+      ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomeScreen(),

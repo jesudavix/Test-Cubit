@@ -1,17 +1,17 @@
-import 'package:cubit_test/controller/bloc/user_bloc.dart';
+import 'package:cubit_test/controller/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ButtonBloc extends StatelessWidget {
+class ButtonCubit extends StatelessWidget {
   final String text;
   final Color backgroundColor;
-  const ButtonBloc({super.key, required this.text, required this.backgroundColor});
+  const ButtonCubit({super.key, required this.text, required this.backgroundColor});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        context.read<UserBloc>().add(LoadUserEvent());
+        context.read<PostCubit>().buscarPost();
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,

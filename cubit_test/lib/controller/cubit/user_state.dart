@@ -1,6 +1,22 @@
 part of 'user_cubit.dart';
 
 
-sealed class UserState {}
+sealed class PostState {}
 
-final class UserInitial extends UserState {}
+final class PostInitial extends PostState {}
+
+final class PostLoading extends PostState {}
+
+final class PostLoaded extends PostState {
+  final List<PostModel> post;
+
+  PostLoaded(this.post);
+}
+
+final class PostError extends PostState {
+  String message;
+
+  PostError(this.message);
+}
+
+
